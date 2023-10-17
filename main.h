@@ -6,7 +6,7 @@
 #include <unistd.h>
 
 #define UNUSED(x) (void)(x)
-#define BUFF 1024
+#define BUFF_SIZE 1024
 
 #define F_MINUS 1
 #define F_PLUS 2
@@ -37,7 +37,7 @@ struct fmt
  */
 typedef struct fmt fmt_t;
 
-int printf(const char *format, ...);
+int _printf(const char *format, ...);
 int handle_print(const char *fmt, int *i, va_list list, char buffer[],
 		int flags, int width, int precision, int size);
 
@@ -48,7 +48,7 @@ int print_char(va_list types, char buffer[], int flags,
 int print_string(va_list types, char buffer[], int flags,
 		int width, int precision, int size);
 int print_percent(va_list types, char buffer[], int flags,
-		int width, precision, int size);
+		int width, int precision, int size);
 
 /* Functions to print numbers */
 int print_int(va_list types, char buffer[], int flags,
@@ -109,4 +109,4 @@ int is_digit(char);
 long int convert_size_number(long int num, int size);
 long int convert_size_unsgnd(unsigned long int num, int size);
 
-#endif /* main_h */
+#endif
